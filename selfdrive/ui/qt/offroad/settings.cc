@@ -59,6 +59,12 @@ TogglesPanel::TogglesPanel(SettingsWindow *parent) : ListWidget(parent) {
       "../assets/offroad/icon_monitoring.png",
     },
     {
+      "DisableUploads",
+      tr("Disable logs to comma."),
+      tr("Disables uploading all logs to comma. Requires restart."),
+      "../assets/offroad/icon_monitoring.png",
+    },
+    {
       "DisengageOnAccelerator",
       tr("Disengage On Accelerator Pedal"),
       tr("When enabled, pressing the accelerator pedal will disengage openpilot."),
