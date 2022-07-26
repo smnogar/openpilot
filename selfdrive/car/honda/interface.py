@@ -281,18 +281,14 @@ class CarInterface(CarInterfaceBase):
       tire_stiffness_factor = 0.82
 
       if eps_modified:
-        # from kiril https://github.com/Kiril-Lange/openpilot/blob/devel-insight/selfdrive/car/honda/interface.py
-        # ret.lateralTuning.pid.kpV, ret.lateralTuning.pid.kiV = [[0.45], [0.135]]
-        ret.lateralTuning.pid.kpV, ret.lateralTuning.pid.kiV = [[0.4], [0.12]]
-
         # kiril
         # test flattening out low end and flatten top end during turn
         ret.lateralParams.torqueBP = [0, 4096, 5120, 8192]
         ret.lateralParams.torqueV  = [0, 2048, 3072, 4096]
 
         # from stormycloud
-        # ret.lateralTuning.pid.kpV, ret.lateralTuning.pid.kiV = [[0.3], [0.1]]
-        # ret.lateralTuning.pid.kf = 0.00004  # conservative feed-forward  # recommended from kiril/stormycloud
+        ret.lateralTuning.pid.kpV, ret.lateralTuning.pid.kiV = [[0.3], [0.1]]
+        ret.lateralTuning.pid.kf = 0.00004  # conservative feed-forward  # recommended from kiril/stormycloud
       else:
         ret.lateralParams.torqueBP, ret.lateralParams.torqueV = [[0, 4096], [0, 4096]]  # TODO: determine if there is a dead zone at the top end
         ret.lateralTuning.pid.kpV, ret.lateralTuning.pid.kiV = [[0.6], [0.18]]
