@@ -267,19 +267,8 @@ class CarInterface(CarInterfaceBase):
         ret.lateralParams.torqueBP, ret.lateralParams.torqueV = [[0, 2560, 8000], [0, 2560, 3840]]
 
 
-        # from stormycloud
-        # i 
-        # 0.06 original
-        # 0.1 still has oscillations
-        # p
-        # 0.22 original
-        # 0.18 still oscillations
-        # 0.25 much better, not perfect
-        # 0.28 a little better
-        # combined
-        # 0.25, 0.1 still oscillations
-        ret.lateralTuning.pid.kpV, ret.lateralTuning.pid.kiV = [[0.28], [0.08]]
-        ret.lateralTuning.pid.kf = 0.00004  # conservative feed-forward  # recommended from kiril/stormycloud
+        ret.lateralTuning.pid.kpV, ret.lateralTuning.pid.kiV = [[0.25], [0.08]]
+        ret.lateralTuning.pid.kf = 0.000045
       else:
         ret.lateralParams.torqueBP, ret.lateralParams.torqueV = [[0, 4096], [0, 4096]]  # TODO: determine if there is a dead zone at the top end
         ret.lateralTuning.pid.kpV, ret.lateralTuning.pid.kiV = [[0.6], [0.18]]
