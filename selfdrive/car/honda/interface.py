@@ -264,12 +264,12 @@ class CarInterface(CarInterfaceBase):
       if eps_modified:
         # kiril
         # test flattening out low end and flatten top end during turn
-        # ret.lateralParams.torqueBP = [0, 4096, 5120, 8192]
-        # ret.lateralParams.torqueV  = [0, 2048, 3072, 4096]
-        ret.lateralParams.torqueBP, ret.lateralParams.torqueV = [[0, 2560, 8000], [0, 2560, 3840]]
+        ret.lateralParams.torqueBP = [0, 4096, 5120, 8192]
+        ret.lateralParams.torqueV  = [0, 2048, 3072, 4096]
 
 
-        ret.lateralTuning.pid.kpV, ret.lateralTuning.pid.kiV = [[0.30], [0.09]]
+        ret.lateralTuning.pid.kiBP, ret.lateralTuning.pid.kpBP = [[5., 10.], [5., 10.]]
+        ret.lateralTuning.pid.kpV, ret.lateralTuning.pid.kiV = [[0.01, 0.35], [0.0035, 0.12]]
         ret.lateralTuning.pid.kf = 0.000040
       else:
         ret.lateralParams.torqueBP, ret.lateralParams.torqueV = [[0, 4096], [0, 4096]]  # TODO: determine if there is a dead zone at the top end
