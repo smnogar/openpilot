@@ -72,6 +72,12 @@ TogglesPanel::TogglesPanel(SettingsWindow *parent) : ListWidget(parent) {
       "../assets/offroad/icon_monitoring.png",
     },
     {
+      "DisableUpdates",
+      tr("Disable update check"),
+      tr("Disables checking for updates on start. Requires restart."),
+      "../assets/offroad/icon_monitoring.png",
+    },
+    {
       "IsMetric",
       tr("Use Metric System"),
       tr("Display speed in km/h instead of mph."),
