@@ -96,6 +96,12 @@ class TogglesLayout(Widget):
         "metric.png",
         False,
       ),
+      "QuietMode": (
+        lambda: tr("Quiet Mode"),
+        DESCRIPTIONS["QuietMode"],
+        "warning.png",
+        False,
+      ),
     }
 
     self._long_personality_setting = multiple_button_item(

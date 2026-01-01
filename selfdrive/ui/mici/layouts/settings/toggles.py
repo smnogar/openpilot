@@ -26,10 +26,12 @@ class TogglesLayoutMici(NavWidget):
     record_mic = BigParamControl("record & upload mic audio", "RecordAudio", toggle_callback=restart_needed_callback)
     enable_openpilot = BigParamControl("enable openpilot", "OpenpilotEnabledToggle", toggle_callback=restart_needed_callback)
     disable_uploads = BigParamControl("disable log uploads", "DisableUploads", toggle_callback=restart_needed_callback)
+    quiet_mode = BigParamControl("quiet mode", "QuietMode")
 
     self._scroller = Scroller([
       self._personality_toggle,
       self._experimental_btn,
+      quiet_mode,
       is_metric_toggle,
       ldw_toggle,
       always_on_dm_toggle,
@@ -42,6 +44,7 @@ class TogglesLayoutMici(NavWidget):
     # Toggle lists
     self._refresh_toggles = (
       ("ExperimentalMode", self._experimental_btn),
+      ("QuietMode", quiet_mode),
       ("IsMetric", is_metric_toggle),
       ("IsLdwEnabled", ldw_toggle),
       ("AlwaysOnDM", always_on_dm_toggle),
