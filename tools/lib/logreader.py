@@ -233,6 +233,34 @@ def parse_direct(identifier: str):
 
 class LogReader:
   def _parse_identifier(self, identifier: str) -> list[str]:
+
+
+    # --- NEW: If identifier is a directory, treat it as a local source of logs ---
+    if os.path.isdir(identifier):
+      files = os.listdir(identifier)
+
+      # case 1: folder contains an rlog or qlog
+      for f in files:
+          if f.endswith(("rlog.zst", "rlog.bz2", "qlog.zst", "qlog.bz2")):
+              return [os.path.join(identifier, f)]
+
+      # case 2: folder contains segment subfolders
+      subdirs = sorted(
+          [os.path.join(identifier, d) for d in files if os.path.isdir(os.path.join(identifier, d))]
+      )
+
+      # add all rlog/qlog files from segment subfolders
+      log_files = []
+      for sd in subdirs:
+          for f in os.listdir(sd):
+              if f.endswith(("rlog.zst", "rlog.bz2", "qlog.zst", "qlog.bz2")):
+                  log_files.append(os.path.join(sd, f))
+
+      if log_files:
+          return log_files
+
+      raise ValueError(f"Directory '{identifier}' contains no rlog/qlog files")
+
     # useradmin, etc.
     identifier = parse_indirect(identifier)
 
