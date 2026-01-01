@@ -25,6 +25,7 @@ class TogglesLayoutMici(NavWidget):
     record_front = BigParamControl("record & upload driver camera", "RecordFront", toggle_callback=restart_needed_callback)
     record_mic = BigParamControl("record & upload mic audio", "RecordAudio", toggle_callback=restart_needed_callback)
     enable_openpilot = BigParamControl("enable openpilot", "OpenpilotEnabledToggle", toggle_callback=restart_needed_callback)
+    disable_uploads = BigParamControl("disable log uploads", "DisableUploads", toggle_callback=restart_needed_callback)
 
     self._scroller = Scroller([
       self._personality_toggle,
@@ -34,6 +35,7 @@ class TogglesLayoutMici(NavWidget):
       always_on_dm_toggle,
       record_front,
       record_mic,
+      disable_uploads,
       enable_openpilot,
     ], snap_items=False)
 
@@ -45,6 +47,7 @@ class TogglesLayoutMici(NavWidget):
       ("AlwaysOnDM", always_on_dm_toggle),
       ("RecordFront", record_front),
       ("RecordAudio", record_mic),
+      ("DisableUploads", disable_uploads),
       ("OpenpilotEnabledToggle", enable_openpilot),
     )
 

@@ -112,6 +112,8 @@ def manager_thread() -> None:
   params = Params()
 
   ignore: list[str] = []
+  if params.get_bool("DisableUploads"):
+    ignore.append("uploader")
   if params.get("DongleId") in (None, UNREGISTERED_DONGLE_ID):
     ignore += ["manage_athenad", "uploader"]
   if os.getenv("NOBOARD") is not None:

@@ -84,6 +84,12 @@ class TogglesLayout(Widget):
         "microphone.png",
         True,
       ),
+      "DisableUploads": (
+        lambda: tr("Disable Uploads to Comma"),
+        DESCRIPTIONS["DisableUploads"],
+        "network.png",
+        False,
+      ),
       "IsMetric": (
         lambda: tr("Use Metric System"),
         DESCRIPTIONS["IsMetric"],
