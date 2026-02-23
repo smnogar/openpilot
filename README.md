@@ -30,7 +30,7 @@ Ongoing issues:
 
 You have to make your own harness. The harness sits between the SAS (steering ECU) and Body domain controller (BDC). It is  a 26 pin connector that I purchased from [aliexpress](https://www.aliexpress.us/item/3256805095325163.html?spm=a2g0o.order_list.order_list_main.5.58f31802709VtE&gatewayAdapt=glo2usa). Note that I did have to sand down one of the plastic nubs on the female connector to fit in the SAS. You can purchase these crimped or uncrimped and make your own cable. I purchased them prewired. 
 
-![harness](/Users/steve/Documents/car/sunnypilot-bmw/docs/assets/harness-pic.jpeg)
+![harness](docs/assets/harness-pic.jpeg)
 
 WARNING: This harness picture does not include the CAN going into CAN 0. Make sure yours has this.
 
@@ -60,7 +60,7 @@ Any pin not labeled here MUST be connected. There is other data like ethernet th
 
 The micro-USB port from the Raspberry Pi pico must go to the Comma secondary USB-C port. The OBD-C connector must go to the Comma main USB-C port. Note that this cable must be a 10 gbps style cable with all internal connectors present.
 
-![harness-diagram](/Users/steve/Documents/car/sunnypilot-bmw/docs/assets/harness-diagram.jpg)
+![harness-diagram](docs/assets/harness-diagram.jpg)
 
 ## Flash Software on the Pico
 
