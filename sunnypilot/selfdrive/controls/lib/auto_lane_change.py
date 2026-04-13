@@ -42,7 +42,8 @@ class AutoLaneChangeController:
     self.param_read_counter = 0
     self.lane_change_delay = 0.0
 
-    self.lane_change_set_timer = self.params.get("AutoLaneChangeTimer", return_default=True)
+    self.lane_change_enabled = False
+    self.lane_change_set_timer = 0
     self.lane_change_bsm_delay = False
 
     self.prev_brake_pressed = False
@@ -60,8 +61,14 @@ class AutoLaneChangeController:
       self.prev_lane_change = False
 
   def read_params(self) -> None:
-    self.lane_change_bsm_delay = self.params.get_bool("AutoLaneChangeBsmDelay")
-    self.lane_change_set_timer = self.params.get("AutoLaneChangeTimer", return_default=True)
+    self.lane_change_enabled = self.params.get_bool("AutoLaneChangeEnabled")
+
+    if self.lane_change_enabled:
+      self.lane_change_bsm_delay = True
+      self.lane_change_set_timer = 1
+    else:
+      self.lane_change_bsm_delay = False
+      self.lane_change_set_timer = 0
 
   def update_params(self) -> None:
     if self.param_read_counter % 50 == 0:

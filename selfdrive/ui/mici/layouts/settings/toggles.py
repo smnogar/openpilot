@@ -23,6 +23,7 @@ class TogglesLayoutMici(NavScroller):
     enable_openpilot = BigParamControl("enable openpilot", "OpenpilotEnabledToggle", toggle_callback=restart_needed_callback)
     disable_uploads = BigParamControl("disable log uploads", "DisableUploads", toggle_callback=restart_needed_callback)
     quiet_mode = BigParamControl("quiet mode", "QuietMode")
+    auto_lane_change = BigParamControl("automatic lane change", "AutoLaneChangeEnabled", toggle_callback=restart_needed_callback)
 
     self._scroller.add_widgets([
       self._personality_toggle,
@@ -34,6 +35,7 @@ class TogglesLayoutMici(NavScroller):
       record_front,
       record_mic,
       disable_uploads,
+      auto_lane_change,
       enable_openpilot,
     ])
 
@@ -47,6 +49,7 @@ class TogglesLayoutMici(NavScroller):
       ("RecordFront", record_front),
       ("RecordAudio", record_mic),
       ("DisableUploads", disable_uploads),
+      ("AutoLaneChangeEnabled", auto_lane_change),
       ("OpenpilotEnabledToggle", enable_openpilot),
     )
 
